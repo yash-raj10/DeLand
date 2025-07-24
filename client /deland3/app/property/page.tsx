@@ -293,7 +293,8 @@ export default function PropertyPage() {
               No Records Found
             </h3>
             <p className="text-yellow-700">
-              No ledger entries found for property number "{propertyNumber}"
+              No ledger entries found for property number &quot;{propertyNumber}
+              &quot;
             </p>
           </div>
         )}
