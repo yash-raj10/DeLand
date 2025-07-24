@@ -38,6 +38,9 @@ export default function PropertyPage() {
     surveyNumbers: [],
   });
 
+  // Get API URL from environment
+  const apiUrl = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8080";
+
   const formatTimestamp = (timestamp: string | number) => {
     try {
       // Handle both string and number timestamps
@@ -105,7 +108,7 @@ export default function PropertyPage() {
       const verificationPromises = uniqueSurveyNumbers.map(
         async (surveyNumber) => {
           const response = await fetch(
-            `http://localhost:8080/verify/${encodeURIComponent(surveyNumber)}`
+            `${apiUrl}/verify/${encodeURIComponent(surveyNumber)}`
           );
           if (response.ok) {
             const result: VerificationResult = await response.json();
@@ -165,9 +168,7 @@ export default function PropertyPage() {
 
     try {
       const response = await fetch(
-        `http://localhost:8080/property/${encodeURIComponent(
-          propertyNumber.trim()
-        )}`
+        `${apiUrl}/property/${encodeURIComponent(propertyNumber.trim())}`
       );
 
       if (response.ok) {

@@ -53,7 +53,8 @@ export default function AdminPage() {
     setIsSubmitting(true);
 
     try {
-      const response = await fetch("http://localhost:8080/add_entry", {
+      const apiUrl = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8080";
+      const response = await fetch(`${apiUrl}/add_entry`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
