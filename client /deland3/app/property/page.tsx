@@ -139,8 +139,8 @@ export default function PropertyPage() {
           });
         }
       }, 100);
-    } catch (error) {
-      console.error("Verification error:", error);
+    } catch (_error) {
+      console.error("Verification error:", _error);
       setVerificationStatus({
         isVerifying: false,
         isValid: false,
@@ -206,7 +206,7 @@ export default function PropertyPage() {
         setLedgerEntries([]);
         setCurrentOwner(null);
       }
-    } catch (error) {
+    } catch {
       setError("Network error: Unable to connect to server");
       setLedgerEntries([]);
       setCurrentOwner(null);
@@ -430,7 +430,7 @@ export default function PropertyPage() {
                 <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-gray-300 dark:bg-gray-600"></div>
 
                 <div className="space-y-8">
-                  {ledgerEntries.map((entry, index) => (
+                  {ledgerEntries.map((entry) => (
                     <div key={entry.id} className="relative flex items-start">
                       {/* Timeline dot */}
                       <div className="flex-shrink-0 w-16 h-16 bg-indigo-100 dark:bg-indigo-900 rounded-full flex items-center justify-center text-2xl border-4 border-white dark:border-gray-800 shadow-lg relative z-10">

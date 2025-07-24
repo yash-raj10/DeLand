@@ -84,7 +84,7 @@ export default function AdminPage() {
         const errorData = await response.json();
         showToast("error", errorData.message || "Failed to add land entry");
       }
-    } catch (error) {
+    } catch {
       showToast("error", "Network error: Unable to connect to server");
     } finally {
       setIsSubmitting(false);
